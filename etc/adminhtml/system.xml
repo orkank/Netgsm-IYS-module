@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="idangerous" translate="label" sortOrder="200">
+            <label>iDangerous</label>
+        </tab>
+        <section id="netgsm_iys" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Netgsm IYS Settings</label>
+            <tab>idangerous</tab>
+            <resource>IDangerous_NetgsmIYS::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="username" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Username</label>
+                    <comment>Netgsm username</comment>
+                </field>
+                <field id="password" translate="label" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Password</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="brand_code" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Brand Code</label>
+                </field>
+                <field id="app_key" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>App Key</label>
+                </field>
+                <field id="enable_logging" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Logging</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="webhook_token" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Webhook Token</label>
+                    <comment><![CDATA[Leave empty to disable token validation<br/>Webhook URL: <strong>{{base_url}}netgsm/iys/webhook</strong>]]></comment>
+                </field>
+                <field id="webhook_allowed_hosts" translate="label" type="textarea" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Webhook Allowed Hosts</label>
+                    <comment>Enter one host per line. Leave empty to allow all hosts.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

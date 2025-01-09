@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="IDangerous_NetgsmIYS::iys" title="Netgsm IYS" module="IDangerous_NetgsmIYS" sortOrder="100" parent="Magento_Backend::marketing" resource="IDangerous_NetgsmIYS::iys"/>
+        <add id="IDangerous_NetgsmIYS::records" title="IYS Records" module="IDangerous_NetgsmIYS" sortOrder="10" parent="IDangerous_NetgsmIYS::iys" action="netgsm_iys/records" resource="IDangerous_NetgsmIYS::records"/>
+    </menu>
+</config>

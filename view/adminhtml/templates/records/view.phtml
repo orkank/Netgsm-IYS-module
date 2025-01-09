@@ -1,0 +1,75 @@
+<?php
+/** @var \IDangerous\NetgsmIYS\Block\Adminhtml\Records\View $block */
+$record = $block->getRecord();
+?>
+<div class="admin__page-section">
+    <div class="admin__page-section-title">
+        <span class="title"><?= $block->escapeHtml(__('Record Information')) ?></span>
+        <div class="actions">
+            <button type="button" class="action-default" onclick="window.location.href='<?= $block->escapeUrl($block->getUrl('*/*/index')) ?>'">
+                <?= $block->escapeHtml(__('Back to List')) ?>
+            </button>
+        </div>
+    </div>
+    <div class="admin__page-section-content">
+        <table class="admin__table-secondary">
+            <tr>
+                <th><?= $block->escapeHtml(__('ID')) ?></th>
+                <td><?= $block->escapeHtml($record->getId()) ?></td>
+            </tr>
+            <tr>
+                <th><?= $block->escapeHtml(__('Type')) ?></th>
+                <td><?= $block->escapeHtml($record->getTypeLabel()) ?></td>
+            </tr>
+            <tr>
+                <th><?= $block->escapeHtml(__('Value')) ?></th>
+                <td><?= $block->escapeHtml($record->getValue()) ?></td>
+            </tr>
+            <tr>
+                <th><?= $block->escapeHtml(__('Status')) ?></th>
+                <td><?= $block->escapeHtml($record->getStatusLabel()) ?></td>
+            </tr>
+            <tr>
+                <th><?= $block->escapeHtml(__('IYS Status')) ?></th>
+                <td><?= $block->escapeHtml($record->getIysStatusLabel()) ?></td>
+            </tr>
+            <tr>
+                <th><?= $block->escapeHtml(__('User ID')) ?></th>
+                <td><?= $block->escapeHtml($record->getUserid() ?: __('N/A')) ?></td>
+            </tr>
+            <tr>
+                <th><?= $block->escapeHtml(__('Created')) ?></th>
+                <td><?= $block->escapeHtml($record->getCreated()) ?></td>
+            </tr>
+            <tr>
+                <th><?= $block->escapeHtml(__('Modified')) ?></th>
+                <td><?= $block->escapeHtml($record->getModified()) ?></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<?php
+$iysResults = $block->formatIysResult($record->getLastIysResult());
+if (!empty($iysResults)):
+?>
+<div class="admin__page-section">
+    <div class="admin__page-section-title">
+        <span class="title"><?= $block->escapeHtml(__('IYS Results History')) ?></span>
+    </div>
+    <div class="admin__page-section-content">
+        <?php foreach ($iysResults as $result): ?>
+            <div class="admin__field-option">
+                <div class="admin__field-label">
+                    <strong><?= $block->escapeHtml(__('Timestamp')) ?>:</strong>
+                    <?= $block->escapeHtml($result['timestamp'] ?? 'N/A') ?>
+                </div>
+                <pre class="admin__field-value">
+                    <?= $block->escapeHtml(json_encode($result, JSON_PRETTY_PRINT)) ?>
+                </pre>
+            </div>
+            <hr/>
+        <?php endforeach; ?>
+    </div>
+</div>
+<?php endif; ?>
