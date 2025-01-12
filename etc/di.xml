@@ -3,9 +3,11 @@
     <type name="Magento\Framework\Console\CommandList">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="netgsm_iys_sync" xsi:type="object">IDangerous\NetgsmIYS\Console\Command\SyncCommand</item>
-                <item name="netgsm_iys_clean_logs" xsi:type="object">IDangerous\NetgsmIYS\Console\Command\CleanLogsCommand</item>
-                <item name="netgsm_iys_list_pending" xsi:type="object">IDangerous\NetgsmIYS\Console\Command\ListPendingCommand</item>
+                <item name="idangerous_iys_sync" xsi:type="object">IDangerous\NetgsmIYS\Console\Command\SyncCommand</item>
+                <item name="idangerous_iys_clean_logs" xsi:type="object">IDangerous\NetgsmIYS\Console\Command\CleanLogsCommand</item>
+                <item name="idangerous_iys_list_pending" xsi:type="object">IDangerous\NetgsmIYS\Console\Command\ListPendingCommand</item>
+                <item name="idangerous_iys_newsletter_sync" xsi:type="object">IDangerous\NetgsmIYS\Console\Command\NewsletterSyncCommand</item>
+                <item name="idangerous_iys_import" xsi:type="object">IDangerous\NetgsmIYS\Console\Command\ImportCommand</item>
             </argument>
         </arguments>
     </type>

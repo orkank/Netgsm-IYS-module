@@ -34,7 +34,7 @@ class ListPendingCommand extends Command
      */
     protected function configure()
     {
-        $this->setName('netgsm:iys:list-pending')
+        $this->setName('idangerous:iys:list-pending')
             ->setDescription('List pending IYS records')
             ->addOption(
                 self::OPTION_COUNT,

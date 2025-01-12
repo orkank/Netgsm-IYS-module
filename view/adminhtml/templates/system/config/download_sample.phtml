@@ -1,0 +1,13 @@
+<?php
+/** @var \IDangerous\NetgsmIYS\Block\Adminhtml\System\Config\DownloadSample $block */
+?>
+<div class="download-sample">
+    <?= $block->getButtonHtml() ?>
+</div>
+<script>
+    require(['jquery'], function($) {
+        $('#download_sample').click(function () {
+            location.href = '<?= $block->escapeJs($block->getDownloadUrl()) ?>';
+        });
+    });
+</script>

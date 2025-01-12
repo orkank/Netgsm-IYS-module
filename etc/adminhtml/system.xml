@@ -4,12 +4,13 @@
         <tab id="idangerous" translate="label" sortOrder="200">
             <label>iDangerous</label>
         </tab>
-        <section id="netgsm_iys" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="idangerous_iys" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Netgsm IYS Settings</label>
             <tab>idangerous</tab>
+
             <resource>IDangerous_NetgsmIYS::config</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>General Settings</label>
+                <label>General Settings IYS</label>
                 <field id="username" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Username</label>
                     <comment>Netgsm username</comment>
@@ -37,6 +38,21 @@
                     <comment>Enter one host per line. Leave empty to allow all hosts.</comment>
                 </field>
             </group>
+
+            <!-- <group id="import" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>CSV Import Settings</label>
+                <field id="sample_file" translate="label comment" type="IDangerous\NetgsmIYS\Block\Adminhtml\System\Config\DownloadSample" sortOrder="10">
+                    <label>Sample CSV File</label>
+                    <frontend_model>IDangerous\NetgsmIYS\Block\Adminhtml\System\Config\DownloadSample</frontend_model>
+                    <comment>Download sample CSV file with correct format</comment>
+                </field>
+                <field id="import_file" translate="label comment" type="IDangerous\NetgsmIYS\Block\Adminhtml\System\Config\Import" sortOrder="20">
+                    <label>Import CSV File</label>
+                    <frontend_model>IDangerous\NetgsmIYS\Block\Adminhtml\System\Config\Import</frontend_model>
+                    <comment>Upload CSV file with IYS records. Format: type,value,status,userid,modified</comment>
+                </field>
+            </group> -->
+
         </section>
     </system>
 </config>

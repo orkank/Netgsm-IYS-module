@@ -1,0 +1,34 @@
+<?php
+/** @var \IDangerous\NetgsmIYS\Block\Adminhtml\System\Config\Import $block */
+?>
+<script>
+    require(['jquery'], function($) {
+        $('#import_button').click(function () {
+            var fileInput = $('#import_file')[0];
+            if (fileInput.files.length === 0) {
+                alert('<?= $block->escapeJs(__('Please select a file to import')) ?>');
+                return;
+            }
+
+            var formData = new FormData();
+            formData.append('import_file', fileInput.files[0]);
+
+            $.ajax({
+                url: '<?= $block->escapeJs($block->getImportUrl()) ?>',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                showLoader: true,
+                success: function(response) {
+                    alert(response.message);
+                    if (response.success) {
+                        fileInput.value = '';
+                    }
+                }
+            });
+        });
+    });
+</script>
+<input type="file" id="import_file" name="import_file" accept=".csv" />
+<?= $block->getButtonHtml() ?>

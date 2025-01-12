@@ -9,7 +9,7 @@ class CleanLogsCommand extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('netgsm:iys:clean-logs')
+        $this->setName('idangerous:iys:clean-logs')
             ->setDescription('Clean IYS log files')
             ->addOption(
                 'days',

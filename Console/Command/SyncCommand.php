@@ -44,7 +44,7 @@ class SyncCommand extends AbstractCommand
      */
     protected function configure()
     {
-        $this->setName('netgsm:iys:sync')
+        $this->setName('idangerous:iys:sync')
             ->setDescription('Sync IYS data with Netgsm')
             ->addOption(
                 self::OPTION_ID,
