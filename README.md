@@ -10,7 +10,7 @@ This module provides integration with Netgsm IYS (İleti Yönetim Sistemi) for m
 - Detailed logging system
 - Automatic customer association
 - Batch processing support
-- Multiple message types support (SMS, Call, Email)
+- Multiple types support (SMS, Call, Email)
 
 ## Installation
 
@@ -42,6 +42,26 @@ php bin/magento setup:static-content:deploy -f
    - Enable Logging
 
 ## Usage
+
+## Commands
+
+### Available Commands
+```
+# Sync IYS records with Netgsm API
+php bin/magento idangerous:iys:sync
+
+# Sync newsletter subscribers to IYS records
+php bin/magento idangerous:iys:newsletter-sync
+
+# Import IYS records from CSV file
+php bin/magento idangerous:iys:import --file=/path/to/your/file.csv
+
+# List pending IYS records
+php bin/magento idangerous:iys:list-pending
+
+# Clean old log entries
+php bin/magento idangerous:iys:clean-logs
+```
 
 ### Admin Grid
 - Access the IYS records grid at: Admin > Marketing > Netgsm IYS > IYS Records
