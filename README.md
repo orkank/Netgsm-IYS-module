@@ -116,14 +116,49 @@ Logs are stored in:
 
 Enable debug logging in admin configuration for detailed information.
 
+## CSV Import
+
+### Command Line Import
+```bash
+# Import from CSV file
+php bin/magento idangerous:iys:import --file=/path/to/your/file.csv
+```
+
+### CSV Format
+The CSV file should have the following columns:
+```csv
+type,value,status,userid,modified (header must be exists)
+sms,+905321234567,1,1,2024-01-01 00:00:00
+email,test@example.com,1,2,2024-01-01 00:00:00
+```
+
+#### Column Descriptions
+- `type`: Message type (sms, email, call)
+- `value`: Phone number or email address
+- `status`: Permission status (0=Not Set, 1=Accepted, 2=User Rejected, 3=IYS Rejected)
+- `userid`: Customer ID (optional)
+- `modified`: Last modification date (YYYY-MM-DD HH:mm:ss)
+
+### Admin Import
+1. Go to Admin > Stores > Configuration > iDangerous > Netgsm IYS Settings
+2. Navigate to the CSV Import Settings section
+3. Download the sample file for reference
+4. Prepare your CSV file following the sample format
+5. Use the import button to upload and process your file
+
+### Import Notes
+- Empty values will be skipped
+- Existing records will be updated based on the value field
+- Records are marked for IYS sync after import
+- Import progress and results are logged
+- Command line import provides detailed progress output
+
 ## Support
 
 For issues and feature requests, please create an issue in the repository.
 
 ## License
 
-[MIT License](LICENSE)
+[MIT License](LICENSE.md)
 
-## Author
-[Orkan Köylü](orkan.koylu@gmail.com)
-[iDangerous](https://idangerous.net)
+[Developer: Orkan Köylü](orkan.koylu@gmail.com)
