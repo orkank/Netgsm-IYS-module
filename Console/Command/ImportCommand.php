@@ -107,15 +107,12 @@ class ImportCommand extends Command
                         $output->writeln("<info>Updating existing record for: {$value}</info>");
                     }
 
-                    print_r($data);
-                    exit;
-
                     $model->setType($type)
                         ->setValue($value)
                         ->setStatus((int)$status)
                         ->setUserid($userid ?: null)
                         ->setModified($modified)
-                        ->setIysStatus(0)
+                        ->setIysStatus($status)
                         ->save();
 
                     $stats['processed']++;

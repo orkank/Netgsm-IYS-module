@@ -1,0 +1,48 @@
+"Download Sample File","Download Sample File"
+Import,Import
+"Please select a file to import","Please select a file to import"
+"Could not open file","Could not open file"
+"Import completed. Processed: %1, Created: %2, Updated: %3, Errors: %4","Import completed. Processed: %1, Created: %2, Updated: %3, Errors: %4"
+"IYS Records","IYS Records"
+"This record no longer exists.","This record no longer exists."
+"IYS Record Details","IYS Record Details"
+"Could not save IYS data: %1","Could not save IYS data: %1"
+"IYS data with ID ""%1"" does not exist.","IYS data with ID ""%1"" does not exist."
+Pending,Pending
+Synced,Synced
+"Not Set","Not Set"
+Accepted,Accepted
+"User Rejected","User Rejected"
+"IYS Rejected","IYS Rejected"
+SMS,SMS
+Call,Call
+Email,Email
+Sync,Sync
+"Sync Record","Sync Record"
+"Are you sure you want to sync this record?","Are you sure you want to sync this record?"
+View,View
+"Record Information","Record Information"
+"Back to List","Back to List"
+ID,ID
+Type,Type
+Value,Value
+Status,Status
+"IYS Status","IYS Status"
+"User ID","User ID"
+N/A,N/A
+Created,Created
+Modified,Modified
+"IYS Results History","IYS Results History"
+Timestamp,Timestamp
+iDangerous,iDangerous
+"Netgsm IYS Settings","Netgsm IYS Settings"
+"General Settings IYS","General Settings IYS"
+Username,Username
+Password,Password
+"Brand Code","Brand Code"
+"App Key","App Key"
+"Enable Logging","Enable Logging"
+"Webhook Token","Webhook Token"
+"Webhook Allowed Hosts","Webhook Allowed Hosts"
+"Sync Selected","Sync Selected"
+Actions,Actions

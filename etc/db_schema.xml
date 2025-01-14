@@ -8,7 +8,7 @@
         <column xsi:type="int" name="userid" padding="10" unsigned="true" nullable="true" comment="User ID"/>
         <column xsi:type="timestamp" name="created" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
         <column xsi:type="timestamp" name="modified" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Modified At"/>
-        <column xsi:type="json" name="last_iys_result" nullable="true" comment="Last IYS Result"/>
+        <column xsi:type="text" name="last_iys_result" nullable="true" comment="Last IYS Result"/>
         <column xsi:type="smallint" name="status" padding="5" unsigned="true" nullable="false" default="0" comment="Status"/>
         <column xsi:type="smallint" name="iys_status" padding="5" unsigned="true" nullable="false" default="0" comment="IYS Sync Status"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
