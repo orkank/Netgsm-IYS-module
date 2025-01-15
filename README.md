@@ -2,6 +2,64 @@
 
 This module provides integration with Netgsm IYS (İleti Yönetim Sistemi) for managing commercial electronic message permissions in Magento 2.
 
+## Required Dependencies
+
+This module is part of a suite of Netgsm integration modules. For full functionality, you need to install the following modules:
+
+1. **Netgsm SMS Module** ([GitHub Repository](https://github.com/orkank/Netgsm-SMS-module))
+   - Handles SMS sending functionality
+   - Required for sending notifications
+   - Manages SMS templates and queues
+
+2. **Extended Subscribe Options** ([GitHub Repository](https://github.com/orkank/ExtendSubscribeOptions))
+   - Adds additional subscription options in frontend
+   - Manages customer communication preferences
+   - Integrates with newsletter subscription
+
+3. **Phone OTP Verification** ([GitHub Repository](https://github.com/orkank/Magento2-OTP-Phone-Verification))
+   - Handles phone number verification
+   - Required for validating customer phone numbers
+   - Ensures compliance with regulations
+
+## Installation Order
+
+For proper functionality, install the modules in this order:
+
+1. First, install this IYS module:
+```bash
+mkdir -p app/code/IDangerous/NetgsmIYS
+# Copy NetgsmIYS module files
+```
+
+2. Then install the SMS module:
+```bash
+mkdir -p app/code/IDangerous/Sms
+# Copy Netgsm-SMS-module files
+```
+
+3. Install the Extended Subscribe Options:
+```bash
+mkdir -p app/code/IDangerous/ExtendSubscribeOptions
+# Copy ExtendSubscribeOptions files
+```
+
+4. Finally, install the Phone OTP Verification:
+```bash
+mkdir -p app/code/IDangerous/PhoneOtpVerification
+# Copy PhoneOtpVerification files
+```
+
+5. Enable all modules:
+```bash
+php bin/magento module:enable IDangerous_NetgsmIYS
+php bin/magento module:enable IDangerous_Sms
+php bin/magento module:enable IDangerous_ExtendSubscribeOptions
+php bin/magento module:enable IDangerous_PhoneOtpVerification
+php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy -f
+```
+
 ## Features
 
 - Sync customer permissions with Netgsm IYS
@@ -11,23 +69,6 @@ This module provides integration with Netgsm IYS (İleti Yönetim Sistemi) for m
 - Automatic customer association
 - Batch processing support
 - Multiple types support (SMS, Call, Email)
-
-## Installation
-
-1. Create directory for the module:
-```
-mkdir -p app/code/IDangerous/NetgsmIYS
-```
-
-2. Copy module files to the directory
-
-3. Enable the module:
-```
-php bin/magento module:enable IDangerous_NetgsmIYS
-php bin/magento setup:upgrade
-php bin/magento setup:di:compile
-php bin/magento setup:static-content:deploy -f
-```
 
 ## Configuration
 
