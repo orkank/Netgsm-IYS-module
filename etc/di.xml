@@ -8,6 +8,7 @@
                 <item name="idangerous_iys_list_pending" xsi:type="object">IDangerous\NetgsmIYS\Console\Command\ListPendingCommand</item>
                 <item name="idangerous_iys_newsletter_sync" xsi:type="object">IDangerous\NetgsmIYS\Console\Command\NewsletterSyncCommand</item>
                 <item name="idangerous_iys_import" xsi:type="object">IDangerous\NetgsmIYS\Console\Command\ImportCommand</item>
+                <item name="idangerous_iys_customer_sync" xsi:type="object">IDangerous\NetgsmIYS\Console\Command\CustomerSyncCommand</item>
             </argument>
         </arguments>
     </type>

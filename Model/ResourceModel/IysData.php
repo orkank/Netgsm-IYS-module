@@ -18,6 +18,7 @@ class IysData extends AbstractDb
             $connection->select()
                 ->from($this->getMainTable())
                 ->where('iys_status = ?', 0)
+                ->where('type != ?', 'whatsapp')
                 ->limit($limit)
         );
     }
@@ -40,7 +41,8 @@ class IysData extends AbstractDb
         $connection = $this->getConnection();
         $select = $connection->select()
             ->from($this->getMainTable())
-            ->where('value = ?', $value);
+            ->where('value = ?', $value)
+            ->where('type != ?', 'whatsapp');
 
         if ($type !== null) {
             $select->where('type = ?', $type);

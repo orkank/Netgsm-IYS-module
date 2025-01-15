@@ -227,6 +227,7 @@ class SyncCommand extends AbstractCommand
     {
         $collection = $this->collectionFactory->create();
         $collection->addFieldToFilter('iys_status', ['eq' => 0]);
+        $collection->addFieldToFilter('type', ['neq' => 'whatsapp']);
         $collection->setPageSize(self::BATCH_SIZE);
 
         if ($collection->getSize() === 0) {

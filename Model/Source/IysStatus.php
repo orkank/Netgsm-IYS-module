@@ -5,6 +5,10 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class IysStatus implements OptionSourceInterface
 {
+    const PENDING = 0;
+    const SYNCED = 1;
+    const ERROR = 2;
+
     /**
      * Get options
      *
@@ -13,8 +17,23 @@ class IysStatus implements OptionSourceInterface
     public function toOptionArray()
     {
         return [
-            ['value' => 0, 'label' => __('Pending')],
-            ['value' => 1, 'label' => __('Synced')]
+            ['value' => self::PENDING, 'label' => __('Pending')],
+            ['value' => self::SYNCED, 'label' => __('Synced')],
+            ['value' => self::ERROR, 'label' => __('Error')]
+        ];
+    }
+
+    /**
+     * Get options in "key-value" format
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return [
+            self::PENDING => __('Pending'),
+            self::SYNCED => __('Synced'),
+            self::ERROR => __('Error')
         ];
     }
 }

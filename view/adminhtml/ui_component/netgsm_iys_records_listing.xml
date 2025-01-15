@@ -106,6 +106,7 @@
             <settings>
                 <filter>select</filter>
                 <options class="IDangerous\NetgsmIYS\Model\Source\Status"/>
+                <dataType>select</dataType>
                 <label translate="true">Status</label>
             </settings>
         </column>
@@ -113,6 +114,7 @@
             <settings>
                 <filter>select</filter>
                 <options class="IDangerous\NetgsmIYS\Model\Source\IysStatus"/>
+                <dataType>select</dataType>
                 <label translate="true">IYS Status</label>
             </settings>
         </column>
