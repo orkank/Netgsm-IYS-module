@@ -1,15 +1,15 @@
 <?php
 namespace IDangerous\NetgsmIYS\Cron;
 
-use IDangerous\NetgsmIYS\Console\Command\NewsletterSyncCommand;
+use IDangerous\NetgsmIYS\Console\Command\CustomerSyncCommand;
 use IDangerous\NetgsmIYS\Helper\Logger;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
 
-class NewsletterSync
+class CustomerSync
 {
     /**
-     * @var NewsletterSyncCommand
+     * @var CustomerSyncCommand
      */
     private $command;
 
@@ -19,11 +19,11 @@ class NewsletterSync
     private $logger;
 
     /**
-     * @param NewsletterSyncCommand $command
+     * @param CustomerSyncCommand $command
      * @param Logger $logger
      */
     public function __construct(
-        NewsletterSyncCommand $command,
+        CustomerSyncCommand $command,
         Logger $logger
     ) {
         $this->command = $command;
@@ -38,16 +38,16 @@ class NewsletterSync
     public function execute()
     {
         try {
-            $this->logger->info('Starting newsletter sync cron job');
+            $this->logger->info('Starting customer sync cron job');
 
             $input = new ArrayInput([]);
             $output = new NullOutput();
 
             $this->command->run($input, $output);
 
-            $this->logger->info('Newsletter sync cron job completed');
+            $this->logger->info('Customer sync cron job completed');
         } catch (\Exception $e) {
-            $this->logger->error('Newsletter sync cron error: ' . $e->getMessage());
+            $this->logger->error('Customer sync cron error: ' . $e->getMessage());
         }
     }
 }

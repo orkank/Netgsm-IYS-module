@@ -1,11 +1,14 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
-    <group id="netgsm_iys">
-        <job name="netgsm_iys_sync" instance="IDangerous\NetgsmIYS\Cron\Sync" method="execute">
-            <schedule>*/50 * * * *</schedule>
+    <group id="default">
+        <job name="idangerous_iys_sync" instance="IDangerous\NetgsmIYS\Cron\Sync" method="execute">
+            <schedule>*/11 * * * *</schedule>
         </job>
-        <job name="netgsm_iys_newsletter_sync" instance="IDangerous\NetgsmIYS\Cron\NewsletterSync" method="execute">
-            <schedule>*/50 * * * *</schedule>
+        <job name="idangerous_iys_newsletter_sync" instance="IDangerous\NetgsmIYS\Cron\NewsletterSync" method="execute">
+            <schedule>*/5 * * * *</schedule>
+        </job>
+        <job name="idangerous_iys_customer_sync" instance="IDangerous\NetgsmIYS\Cron\CustomerSync" method="execute">
+            <schedule>*/5 * * * *</schedule>
         </job>
     </group>
 </config>
