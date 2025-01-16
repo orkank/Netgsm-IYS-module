@@ -68,16 +68,17 @@ class NewsletterSync
      * Execute newsletter sync
      *
      * @param int|null $limit
+     * @param int|null $customerId
      * @return void
      */
-    public function execute($limit = null)
+    public function execute($limit = null, $customerId = null)
     {
         // if (!$this->config->isEnabled()) {
         //     return;
         // }
 
         try {
-            $stats = $this->syncFromNewsletter($limit);
+            $stats = $this->syncFromNewsletter($limit, $customerId);
 
             if ($this->config->isLoggingEnabled()) {
                 $this->logger->info('Newsletter sync completed', $stats);
@@ -91,9 +92,10 @@ class NewsletterSync
      * Sync data from newsletter_subscriber table
      *
      * @param int|null $limit
+     * @param int|null $customerId
      * @return array
      */
-    private function syncFromNewsletter($limit = null)
+    private function syncFromNewsletter($limit = null, $customerId = null)
     {
         $stats = [
             'processed' => 0,
@@ -109,6 +111,11 @@ class NewsletterSync
         // Exclude empty emails
         $subscribers->addFieldToFilter('subscriber_email', ['notnull' => true]);
         $subscribers->addFieldToFilter('subscriber_email', ['neq' => '']);
+
+        // Filter by customer ID if provided
+        if ($customerId !== null) {
+            $subscribers->addFieldToFilter('customer_id', $customerId);
+        }
 
         // Apply limit if set
         if ($limit !== null) {

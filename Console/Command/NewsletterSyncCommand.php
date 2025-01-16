@@ -36,9 +36,15 @@ class NewsletterSyncCommand extends Command
             ->setDescription('Sync newsletter subscribers to IYS data table')
             ->addOption(
                 'limit',
-                null,
+                'l',
                 InputOption::VALUE_REQUIRED,
                 'Limit number of records to process'
+            )
+            ->addOption(
+                'customer-id',
+                'c',
+                InputOption::VALUE_REQUIRED,
+                'Sync specific customer by ID'
             )
             ->addOption(
                 'debug',
@@ -59,12 +65,18 @@ class NewsletterSyncCommand extends Command
             $output->writeln('<info>Starting newsletter sync...</info>');
 
             $limit = $input->getOption('limit');
-            if ($limit !== null) {
+            $customerId = $input->getOption('customer-id');
+
+            if ($customerId) {
+                $output->writeln(sprintf('<info>Processing specific customer ID: %d</info>', $customerId));
+            }
+
+            if ($limit !== null && !$customerId) {
                 $limit = (int)$limit;
                 $output->writeln(sprintf('<info>Processing limit: %d records</info>', $limit));
             }
 
-            $this->newsletterSync->execute($limit);
+            $this->newsletterSync->execute($limit, $customerId);
 
             $output->writeln('<info>Newsletter sync completed successfully.</info>');
 
