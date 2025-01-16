@@ -214,12 +214,53 @@ email,test@example.com,1,2,2024-01-01 00:00:00
 - Import progress and results are logged
 - Command line import provides detailed progress output
 
+## IYS Integration Details
+
+### Source Type
+This module only supports `HS_WEB` as the source type for all IYS records. Other source types are not implemented.
+
+### Recipient Type
+All records are processed as `BIREYSEL` (Individual) recipient type. Corporate/Business recipient types are not supported.
+
+### Example IYS Record
+```json
+{
+    "iyscode": "123456",
+    "brandcode": "123456",
+    "type": "ARAMA",
+    "source": "HS_WEB",        // Fixed value for all records
+    "status": "ONAY",
+    "consentdate": "2024-01-08 13:55:00",
+    "recipienttype": "BIREYSEL", // Fixed value for all records
+    "recipient": "+905320111110"
+}
+```
+
+### Supported Message Types
+- SMS (`MESAJ`)
+- Call (`ARAMA`)
+- Email (`EPOSTA`)
+
+Note: WhatsApp messages are not supported by IYS integration.
+
 ## Support
 
 For issues and feature requests, please create an issue in the repository.
 
 ## License
 
-[MIT License](LICENSE.md)
+This software is licensed under a Custom License.
+
+### Non-Commercial Use
+- This software is free for non-commercial use
+- You may copy, distribute and modify the software as long as you track changes/dates in source files
+- Any modifications must be made available under the same license terms
+
+### Commercial Use
+- Commercial use of this software requires explicit permission from the author
+- Please contact [Orkan Köylü](orkan.koylu@gmail.com) for commercial licensing inquiries
+- Usage without proper licensing agreement is strictly prohibited
+
+Copyright (c) 2024 Orkan Köylü. All Rights Reserved.
 
 [Developer: Orkan Köylü](orkan.koylu@gmail.com)

@@ -12,4 +12,9 @@
             </argument>
         </arguments>
     </type>
+    <type name="IDangerous\NetgsmIYS\Console\Command\NewsletterSyncCommand">
+        <arguments>
+            <argument name="newsletterSync" xsi:type="object">IDangerous\NetgsmIYS\Cron\NewsletterSync</argument>
+        </arguments>
+    </type>
 </config>
