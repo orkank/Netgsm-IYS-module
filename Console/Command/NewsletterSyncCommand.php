@@ -76,9 +76,14 @@ class NewsletterSyncCommand extends Command
                 $output->writeln(sprintf('<info>Processing limit: %d records</info>', $limit));
             }
 
-            $this->newsletterSync->execute($limit, $customerId);
+            $stats = $this->newsletterSync->execute($limit, $customerId);
 
             $output->writeln('<info>Newsletter sync completed successfully.</info>');
+            $output->writeln(sprintf('<info>Created: %d</info>', $stats['created']));
+            $output->writeln(sprintf('<info>Updated: %d</info>', $stats['updated']));
+            $output->writeln(sprintf('<info>Skipped: %d</info>', $stats['skipped']));
+            $output->writeln(sprintf('<info>Duplicate skipped: %d</info>', $stats['duplicate_skipped']));
+            $output->writeln(sprintf('<info>Empty email: %d</info>', $stats['empty_email']));
 
             return 0;
         } catch (\Exception $e) {
