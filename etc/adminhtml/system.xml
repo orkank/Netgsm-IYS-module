@@ -15,9 +15,9 @@
                     <label>Username</label>
                     <comment>Netgsm username</comment>
                 </field>
-                <field id="password" translate="label" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="password" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Password</label>
-                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <comment>Netgsm password in plain text</comment>
                 </field>
                 <field id="brand_code" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Brand Code</label>
